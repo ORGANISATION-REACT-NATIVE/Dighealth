@@ -6,8 +6,8 @@ import Root from './Navigation/Root';
 export default function App() {
   return (
     <NavigationContainer>
-      <Root />
       <StatusBar style="auto" />
+      <Root />
     </NavigationContainer>
   );
 }

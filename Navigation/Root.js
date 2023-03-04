@@ -9,6 +9,7 @@ export default function Root() {
   return (
     <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name='Login' component={LoginScreen} options={{headerShown: false, title: 'Login'}}/>
+        
     </Stack.Navigator>
   )
 }
