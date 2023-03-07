@@ -1,26 +1,25 @@
-import React from 'react'
-import { View, Text, StyleSheet, StatusBar, Image, Button, Linking, TouchableOpacity } from 'react-native'
+import Reac, { useState } from 'react'
+import { View, Text, StyleSheet, StatusBar, Image, Button, Linking, TouchableOpacity, Pressable } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler'
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Choose your account type</Text>
       <View style={styles.containerCard}>
         <View style={styles.card}>
-          <TouchableOpacity>
+          <Pressable>
             <Image source={{uri: 'https://th.bing.com/th/id/OIP.GUMg6Hb0K1SEO-gUCkwhpgHaHa?pid=ImgDet&w=208&h=208&c=7&dpr=1.5'}} style={{width: 125, height: 130, borderRadius: 10, marginTop: 0, paddingTop: 0}} />
             <Text style={{ position: 'absolute', left: 25, bottom: 0, textAlign: 'center'}}>I'm a patient</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <View style={styles.card}>
-          <TouchableOpacity>
+          <Pressable>
             <Image source={{uri: 'https://th.bing.com/th/id/OIP.3AChV9qTonQSmD2lSTezSgHaHa?pid=ImgDet&w=208&h=208&c=7&dpr=1.5'}} style={{width: 125, height: 130, borderRadius: 10, marginTop: 0, paddingTop: 0}} />
             <Text style={{position: 'absolute', left: 25, bottom: 0, textAlign: 'center'}}>I'm a doctor</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
       <View style={styles.descriptionTesxt}>
@@ -40,9 +39,9 @@ export default function LoginScreen() {
       <View style={styles.footerForm}>
         <View style={{display: 'flex', flexDirection: 'row'}}>
           <Text>No account?</Text>
-          <TouchableOpacity><Text style={{color: 'skyblue', fontWeight: '700'}}>SignUp</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}><Text style={{color: 'skyblue', fontWeight: '700'}}>SignUp</Text></TouchableOpacity>
         </View>
-        <Button title='LogIn' style={styles.button}/>
+        <Button title='      LogIn      ' style={styles.button} onPress={() => navigation.navigate('PatientHome')}/>
       </View>
     </View>
   )
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1',
     alignItems: 'center',
     margin: 20,
+    marginTop: 80,
   },
   title:{
     fontSize: 20,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button:{
-    padding: 2
+    borderRadius: 10
   },
   footerForm:{
     display: 'flex',
